@@ -7,6 +7,8 @@ import me.personal.dinner_planner.dto.auth.PasswordResetRequest;
 import me.personal.dinner_planner.dto.auth.PasswordUpdateRequest;
 import me.personal.dinner_planner.dto.auth.RegistrationRequest;
 import me.personal.dinner_planner.exceptions.*;
+import me.personal.dinner_planner.interfaces.AuthService;
+import me.personal.dinner_planner.interfaces.EmailService;
 import me.personal.dinner_planner.models.User;
 import me.personal.dinner_planner.repositories.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,25 +19,27 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class AuthService {
+public class EmailPasswordAuthService implements AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final EmailService emailService;
 
     @Transactional
+    @Override
     public void register(RegistrationRequest request) {
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new UserAlreadyExistsException();
         }
         User user = User.builder()
                 .email(request.getEmail())
-                .password(request.getPassword())
+                .password(passwordEncoder.encode(request.getPassword()))
                 .build();
         userRepository.save(user);
     }
 
     @Transactional
+    @Override
     public String login(LoginRequest request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(InvalidCredentialsException::new);

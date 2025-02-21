@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgres://pg-dinner-plan-serious-notes.b.aivencloud.com:19398/defaultdb?sslmode=require
+    username: avnadmin
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    baseline-on-migrate: true
+
+server:
+  servlet:
+    cookie:
+      secure: true
+      same-site: strict
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 3600000

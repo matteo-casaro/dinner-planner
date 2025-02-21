@@ -1,4 +1,4 @@
-package me.personal.dinner_planner.services;
+package me.personal.dinner_planner.interfaces;
 
 public interface EmailService {
 

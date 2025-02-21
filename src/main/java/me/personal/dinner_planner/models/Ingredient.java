@@ -1,6 +1,7 @@
 package me.personal.dinner_planner.models;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import me.personal.dinner_planner.enums.IngredientType;
 
@@ -8,11 +9,13 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
+@Builder
 @Entity
 @Table(name = "ingredients")
 public class Ingredient {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @ManyToOne

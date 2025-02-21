@@ -1,6 +1,7 @@
 package me.personal.dinner_planner.models;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import me.personal.dinner_planner.enums.DayOfWeek;
 import me.personal.dinner_planner.enums.MealType;
@@ -9,11 +10,13 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
+@Builder
 @Entity
-@Table(name = "meal_schedule")
+@Table(name = "meal_schedule", uniqueConstraints = @UniqueConstraint(columnNames = {"selected_day", "meal_type", "user_id"}))
 public class MealSchedule {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @ManyToOne
@@ -25,7 +28,7 @@ public class MealSchedule {
     private Recipe recipe;
 
     @Enumerated(EnumType.STRING)
-    private DayOfWeek day;
+    private DayOfWeek selectedDay;
 
     @Enumerated(EnumType.STRING)
     private MealType mealType;

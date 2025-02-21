@@ -5,7 +5,7 @@ import me.personal.dinner_planner.dto.auth.LoginRequest;
 import me.personal.dinner_planner.dto.auth.PasswordResetRequest;
 import me.personal.dinner_planner.dto.auth.PasswordUpdateRequest;
 import me.personal.dinner_planner.dto.auth.RegistrationRequest;
-import me.personal.dinner_planner.services.AuthService;
+import me.personal.dinner_planner.services.EmailPasswordAuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import jakarta.servlet.http.Cookie;
@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    private final AuthService authService;
+    private final EmailPasswordAuthService authService;
 
     @PostMapping("/register")
     public ResponseEntity<Void> register(@RequestBody RegistrationRequest request) {
