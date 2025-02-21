@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.UUID;
 
 @DataJpaTest
-@ActiveProfiles("junit")
+@ActiveProfiles("local")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@Tag("UnitTest")
-public class RecipeRepositoryTest {
+@Tag("IntegrationTest")
+class RecipeRepositoryTest {
 
     private final RecipeRepository recipeRepository;
 

@@ -1,9 +1,8 @@
-package me.personal.dinner_planner.configuration;
+package me.personal.dinner_planner.services;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
@@ -11,12 +10,12 @@ import java.util.Date;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class JwtService {
 
     private SecretKey key;
 
     @PostConstruct
+    @SuppressWarnings("unused")
     public void init() {
         this.key = Jwts.SIG.HS256.key().build();
     }
@@ -34,7 +33,7 @@ public class JwtService {
         Claims claims = Jwts.parser()
                 .verifyWith(key)
                 .build()
-                .parseEncryptedClaims(token)
+                .parseSignedClaims(token)
                 .getPayload();
 
         return UUID.fromString(claims.getSubject());

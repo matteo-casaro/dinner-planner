@@ -1,14 +1,13 @@
 package me.personal.dinner_planner.services;
 
 import lombok.RequiredArgsConstructor;
-import me.personal.dinner_planner.configuration.JwtService;
 import me.personal.dinner_planner.dto.auth.LoginRequest;
 import me.personal.dinner_planner.dto.auth.PasswordResetRequest;
 import me.personal.dinner_planner.dto.auth.PasswordUpdateRequest;
 import me.personal.dinner_planner.dto.auth.RegistrationRequest;
 import me.personal.dinner_planner.exceptions.*;
-import me.personal.dinner_planner.interfaces.AuthService;
-import me.personal.dinner_planner.interfaces.EmailService;
+import me.personal.dinner_planner.services.interfaces.AuthService;
+import me.personal.dinner_planner.services.interfaces.EmailService;
 import me.personal.dinner_planner.models.User;
 import me.personal.dinner_planner.repositories.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;

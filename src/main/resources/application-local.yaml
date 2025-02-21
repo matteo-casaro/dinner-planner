@@ -1,4 +1,5 @@
 spring:
+
   datasource:
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
     driver-class-name: org.h2.Driver
@@ -12,3 +13,18 @@ spring:
     hibernate:
       ddl-auto: none
     database-platform: org.hibernate.dialect.H2Dialect
+
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 587
+    username: 8a16e59bf57ec8
+    password: ${SMTP_PASS_TEST}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+fe:
+  host: http://localhost:8080

@@ -1,4 +1,4 @@
-package me.personal.dinner_planner.interfaces;
+package me.personal.dinner_planner.services.interfaces;
 
 import me.personal.dinner_planner.dto.auth.LoginRequest;
 import me.personal.dinner_planner.dto.auth.RegistrationRequest;

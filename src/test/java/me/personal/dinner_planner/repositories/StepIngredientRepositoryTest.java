@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @DataJpaTest
-@ActiveProfiles("junit")
+@ActiveProfiles("local")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@Tag("UnitTest")
-public class StepIngredientRepositoryTest {
+@Tag("IntegrationTest")
+class StepIngredientRepositoryTest {
 
     private final StepIngredientRepository stepIngredientRepository;
 

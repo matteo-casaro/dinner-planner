@@ -1,12 +1,11 @@
 package me.personal.dinner_planner.services;
 
-import me.personal.dinner_planner.configuration.JwtService;
 import me.personal.dinner_planner.dto.auth.LoginRequest;
 import me.personal.dinner_planner.dto.auth.PasswordResetRequest;
 import me.personal.dinner_planner.dto.auth.PasswordUpdateRequest;
 import me.personal.dinner_planner.dto.auth.RegistrationRequest;
 import me.personal.dinner_planner.exceptions.*;
-import me.personal.dinner_planner.interfaces.EmailService;
+import me.personal.dinner_planner.services.interfaces.EmailService;
 import me.personal.dinner_planner.models.User;
 import me.personal.dinner_planner.repositories.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,7 +25,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @Tag("UnitTest")
-public class EmailPasswordAuthServiceTest {
+class EmailPasswordAuthServiceTest {
 
     @Mock
     private UserRepository userRepository;

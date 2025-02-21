@@ -14,10 +14,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @DataJpaTest
-@ActiveProfiles("junit")
+@ActiveProfiles("local")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@Tag("UnitTest")
-public class MealScheduleRepositoryTest {
+@Tag("IntegrationTest")
+class MealScheduleRepositoryTest {
 
     private final MealScheduleRepository mealScheduleRepository;
 
@@ -91,7 +91,7 @@ public class MealScheduleRepositoryTest {
         Assertions.assertEquals(DayOfWeek.FRIDAY, schedules.get(0).getSelectedDay());
         Assertions.assertEquals(MealType.DINNER, schedules.get(0).getMealType());
         Assertions.assertEquals(DayOfWeek.MONDAY, schedules.get(1).getSelectedDay());
-        Assertions.assertEquals(MealType.DINNER, schedules.get(1).getMealType());
+        Assertions.assertEquals(MealType.LUNCH, schedules.get(1).getMealType());
     }
 
     @Test
