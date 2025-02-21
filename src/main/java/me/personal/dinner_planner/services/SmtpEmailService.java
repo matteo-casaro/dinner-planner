@@ -4,6 +4,7 @@ import me.personal.dinner_planner.interfaces.EmailService;
 import org.springframework.stereotype.Service;
 
 @Service
+@SuppressWarnings("unused")
 public class SmtpEmailService implements EmailService {
 
     @Override

@@ -14,7 +14,9 @@ import jakarta.servlet.http.HttpServletResponse;
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
-public class AuthController {
+@SuppressWarnings("unused")
+public class EmailPasswordAuthController {
+
     private final EmailPasswordAuthService authService;
 
     @PostMapping("/register")
