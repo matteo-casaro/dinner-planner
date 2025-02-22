@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgres://pg-dinner-plan-serious-notes.b.aivencloud.com:19398/prod?sslmode=require
+    url: jdbc:postgres://pg-dinner-plan-serious-notes.b.aivencloud.com:19398/defaultdb?sslmode=require
     username: avnadmin
     password: ${DB_PASSWORD}
   jpa:
@@ -20,7 +20,7 @@ spring:
           starttls:
             enable: true
 fe:
-  host: http://localhost:8080
+  host: ${FE_HOST}
 server:
   servlet:
     cookie:
