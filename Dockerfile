@@ -16,6 +16,9 @@ WORKDIR /app
 # Copy built JAR from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
+# Set the environment variable to run with the 'prod' profile
+ENV SPRING_PROFILES_ACTIVE=prod
+
 # Expose the port your Spring Boot app runs on
 EXPOSE 8080
 
