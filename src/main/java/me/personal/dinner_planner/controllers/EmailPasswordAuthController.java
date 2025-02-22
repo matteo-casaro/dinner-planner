@@ -1,10 +1,7 @@
 package me.personal.dinner_planner.controllers;
 
 import lombok.RequiredArgsConstructor;
-import me.personal.dinner_planner.dto.auth.LoginRequest;
-import me.personal.dinner_planner.dto.auth.PasswordResetRequest;
-import me.personal.dinner_planner.dto.auth.PasswordUpdateRequest;
-import me.personal.dinner_planner.dto.auth.RegistrationRequest;
+import me.personal.dinner_planner.dto.auth.*;
 import me.personal.dinner_planner.services.EmailPasswordAuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,8 +23,8 @@ public class EmailPasswordAuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Void> login(@RequestBody LoginRequest request,
-                                      HttpServletResponse response) {
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request,
+                                               HttpServletResponse response) {
         String token = authService.login(request);
 
         Cookie cookie = new Cookie("jwt_token", token);
@@ -37,7 +34,7 @@ public class EmailPasswordAuthController {
         cookie.setMaxAge(86400); // 24 hours
 
         response.addCookie(cookie);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(new LoginResponse(token));
     }
 
     @PostMapping("/password-reset/request")

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgres://pg-dinner-plan-serious-notes.b.aivencloud.com:19398/prod?sslmode=require
+    url: jdbc:postgres://pg-dinner-plan-serious-notes.b.aivencloud.com:19398/dev?sslmode=require
     username: avnadmin
     password: ${DB_PASSWORD}
   jpa:

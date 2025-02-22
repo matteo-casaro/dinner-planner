@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @DataJpaTest
-@ActiveProfiles("local")
+@ActiveProfiles("test")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Tag("IntegrationTest")
 class RecipeRepositoryTest {

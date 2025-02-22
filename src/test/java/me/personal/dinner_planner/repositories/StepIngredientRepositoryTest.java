@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @DataJpaTest
-@ActiveProfiles("local")
+@ActiveProfiles("test")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Tag("IntegrationTest")
 class StepIngredientRepositoryTest {

@@ -1,13 +1,15 @@
 spring:
   datasource:
-    url: jdbc:postgres://pg-dinner-plan-serious-notes.b.aivencloud.com:19398/prod?sslmode=require
-    username: avnadmin
-    password: ${DB_PASSWORD}
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  flyway:
+    enabled: true
   jpa:
     hibernate:
-      ddl-auto: validate
-  flyway:
-    baseline-on-migrate: true
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.H2Dialect
   mail:
     host: sandbox.smtp.mailtrap.io
     port: 587
@@ -21,8 +23,3 @@ spring:
             enable: true
 fe:
   host: http://localhost:8080
-server:
-  servlet:
-    cookie:
-      secure: true
-      same-site: strict
