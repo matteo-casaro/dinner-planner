@@ -1,8 +1,10 @@
 package me.personal.dinner_planner.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import me.personal.dinner_planner.enums.DayOfWeek;
 import me.personal.dinner_planner.enums.MealType;
 
@@ -11,6 +13,8 @@ import java.util.UUID;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "meal_schedule", uniqueConstraints = @UniqueConstraint(columnNames = {"selected_day", "meal_type", "user_id"}))
 public class MealSchedule {

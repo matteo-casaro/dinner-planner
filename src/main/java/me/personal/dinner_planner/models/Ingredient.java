@@ -1,8 +1,7 @@
 package me.personal.dinner_planner.models;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import me.personal.dinner_planner.enums.IngredientType;
 
 import java.time.LocalDateTime;
@@ -10,6 +9,8 @@ import java.util.UUID;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "ingredients")
 public class Ingredient {

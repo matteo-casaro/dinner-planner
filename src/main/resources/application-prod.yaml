@@ -1,9 +1,12 @@
 spring:
   datasource:
-    url: jdbc:postgres://pg-dinner-plan-serious-notes.b.aivencloud.com:19398/defaultdb?sslmode=require
+    url: jdbc:postgresql://pg-dinner-plan-serious-notes.b.aivencloud.com:19398/defaultdb?sslmode=require
     username: avnadmin
     password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    platform: postgresql
   jpa:
+    open-in-view: false
     hibernate:
       ddl-auto: validate
   flyway:
