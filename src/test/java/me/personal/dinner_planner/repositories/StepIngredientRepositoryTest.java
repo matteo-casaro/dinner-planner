@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -88,7 +89,7 @@ class StepIngredientRepositoryTest {
         return StepIngredient.builder()
                 .ingredient(testIngredient)
                 .step(testStep)
-                .quantity(100.0)
+                .quantity(new BigDecimal(100))
                 .createdAt(LocalDateTime.now())
                 .build();
     }
@@ -115,7 +116,7 @@ class StepIngredientRepositoryTest {
         Assertions.assertEquals("Test Ingredient", saved.getIngredient().getName());
         Assertions.assertEquals(IngredientType.FRUIT, saved.getIngredient().getType());
         Assertions.assertEquals(testUser.getId(), saved.getIngredient().getUser().getId());
-        Assertions.assertEquals(100.0, saved.getQuantity());
+        Assertions.assertEquals(100, saved.getQuantity().intValue());
         Assertions.assertEquals("g", saved.getIngredient().getUnit());
     }
 
@@ -136,7 +137,7 @@ class StepIngredientRepositoryTest {
         Assertions.assertEquals("Test Ingredient", stepIngredient.getIngredient().getName());
         Assertions.assertEquals(IngredientType.FRUIT, stepIngredient.getIngredient().getType());
         Assertions.assertEquals(testUser.getId(), stepIngredient.getIngredient().getUser().getId());
-        Assertions.assertEquals(100.0, stepIngredient.getQuantity());
+        Assertions.assertEquals(100, stepIngredient.getQuantity().intValue());
         Assertions.assertEquals("g", stepIngredient.getIngredient().getUnit());
     }
 
